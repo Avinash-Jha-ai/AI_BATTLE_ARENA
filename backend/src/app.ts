@@ -1,11 +1,12 @@
 import express from 'express';
 import runGraph from "./ai/graph.ai.js"
 import cors from "cors"
+import config from './config/config.js';
 
 const app = express();
 app.use(express.json())
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: config.frontend_url || "https://ai-battle-arena-nine.vercel.app",
     methods: ["GET", "POST"],
     credentials: true,
 }))
